@@ -16,7 +16,7 @@ const displayDate = frontmatter.date
   ? new Date(frontmatter.date + 'T12:00:00').toLocaleDateString('pt-BR', {day:'2-digit',month:'long',year:'numeric'})
   : '';
 ---
-<BaseLayout title={frontmatter.title + ' | Radar Sindical'} description={frontmatter.description}>
+<BaseLayout title={frontmatter.title + ' | Radar Sindical'} description={frontmatter.description} image={frontmatter.image}>
   <section class="article-hero">
     <div class="container">
       <a class="back-link" href="/#conteudos">← Todos os conteúdos</a>
@@ -29,7 +29,16 @@ const displayDate = frontmatter.date
     </div>
   </section>
   <section class="container article-shell">
-    <article class="prose"><slot />
+    <article class="prose">
+      {frontmatter.image && <figure class="article-cover">
+        <img src={frontmatter.image} alt={frontmatter.imageAlt || frontmatter.title} decoding="async" loading="eager" onerror="this.closest('figure').remove()" />
+        {frontmatter.imageCredit && <figcaption>
+          Imagem: {frontmatter.imageSourceUrl
+            ? <a href={frontmatter.imageSourceUrl} target="_blank" rel="noopener noreferrer">{frontmatter.imageCredit}</a>
+            : frontmatter.imageCredit}
+        </figcaption>}
+      </figure>}
+      <slot />
       {related.length > 0 && <section class="article-related" aria-label="Artigos relacionados">
         <h2>Leia também</h2>
         <ul>{related.map(item => <li><a href={item.url}>{item.title}</a></li>)}</ul>
