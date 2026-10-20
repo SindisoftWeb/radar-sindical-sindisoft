@@ -4,6 +4,9 @@ title: "EC 141/2026 muda jornada e repouso semanal de forma progressiva"
 description: "Promulgada em 16 de outubro, a Emenda Constitucional nº 141 prevê dois dias de repouso semanal e reduz gradualmente a jornada máxima para 40 horas, sem redução salarial."
 category: "Relações de trabalho"
 date: "2026-10-20"
+publishedAt: "2026-10-20T14:34:00-03:00"
+sourcePublishedAt: "2026-10-16T12:08:00-03:00"
+sourceLabel: "Agência Câmara"
 readingTime: "5 min"
 ---
 
