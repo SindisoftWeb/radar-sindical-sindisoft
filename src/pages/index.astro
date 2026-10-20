@@ -43,7 +43,7 @@ const editorias = [
             <span class="feature-topbar-right">SINDISOFT / EDITORIAL</span>
           </div>
           <div class="feature-inner">
-            <div class="feature-icon" aria-hidden="true"><span>◈</span><span class="feature-ring"></span></div>
+            {featured.image && <div class="feature-image-wrap"><img class="feature-image" src={featured.image} alt={featured.imageAlt || featured.title} loading="eager" decoding="async" onerror="this.parentElement.remove()" /></div>}
             <p class="feature-eyebrow">CONTEÚDO EM DESTAQUE</p>
             <h2>{featured.title}</h2>
             <p>{featured.description}</p>
@@ -101,10 +101,12 @@ const editorias = [
       <div class="posts-grid" id="posts-grid">
         {posts.map((post: any, i: number) =>
           <a class="post-card" href={post.url} data-editoria={post.editoria} data-search={(post.title + ' ' + post.description + ' ' + post.category).toLocaleLowerCase('pt-BR')}>
-            <div class={'post-visual visual-' + (i % 3 + 1)}>
-              <span class="visual-label">RADAR SINDICAL / {String(i + 1).padStart(2, '0')}</span>
-              <div class="post-visual-art" aria-hidden="true"><span>◈</span><i></i><i></i></div>
-              <span class="visual-word">SINDISOFT</span>
+            <div class={'post-visual visual-' + (i % 3 + 1) + (post.image ? ' with-photo' : '')}>
+              {post.image && <img class="post-thumbnail" src={post.image} alt={post.imageAlt || post.title} loading="lazy" decoding="async" onerror="this.remove();this.parentElement.classList.remove('with-photo')" />}
+              <div class="post-visual-fallback">
+                <span>{post.category}</span>
+                <strong>{post.title}</strong>
+              </div>
             </div>
             <div class="post-content">
               <span class="post-category">{post.category}</span>
