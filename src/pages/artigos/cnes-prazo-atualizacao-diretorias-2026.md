@@ -4,6 +4,7 @@ title: "CNES: entidades notificadas precisam atualizar dados de suas diretorias"
 description: "Edital divulgado pelo MTE abrange 169 entidades sindicais e estabelece prazo de regularização até 4 de janeiro de 2027. Veja o que conferir."
 category: "Gestão sindical"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:52:33-03:00"
 readingTime: "5 min"
 ---
 
