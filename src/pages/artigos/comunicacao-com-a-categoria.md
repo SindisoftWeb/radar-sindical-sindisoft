@@ -4,6 +4,7 @@ title: "Como fortalecer a comunicação do sindicato com a categoria"
 description: "Orientações para tornar as mensagens da entidade mais claras, acessíveis e conectadas às necessidades de seus representados."
 category: "Comunicação com a categoria"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:53:13-03:00"
 readingTime: "4 min"
 ---
 
