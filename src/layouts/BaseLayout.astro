@@ -8,7 +8,7 @@ interface Props {
 }
 const {
   title = 'Radar Sindical | Sindisoft',
-  description = 'Informação e orientações práticas sobre gestão sindical, tecnologia e relacionamento com a categoria.'
+  description = 'Notícias sindicais, gestão, tecnologia e aplicações da Sindisoft para entidades de classe.'
 } = Astro.props;
 ---
 <!doctype html>
@@ -36,13 +36,13 @@ const {
         <a class="identity" href="/" aria-label="Radar Sindical por Sindisoft — início">
           <img src="/sindisoft-logo.svg" alt="Sindisoft" width="164" height="41" class="official-logo" />
           <span class="identity-divider" aria-hidden="true"></span>
-          <span class="identity-words"><strong>RADAR SINDICAL</strong><small>CONTEÚDO &amp; INTELIGÊNCIA</small></span>
+          <span class="identity-words"><strong>RADAR SINDICAL</strong><small>INFORMAÇÃO · GESTÃO · TECNOLOGIA</small></span>
         </a>
         <nav class="header-nav" aria-label="Navegação do Radar Sindical">
-          <a href="/#conteudos">Conteúdos</a>
-          <a href="/#editorias">Editorias</a>
-          <a href="/#sobre">Sobre o Radar</a>
-          <a href="https://www.sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Site Sindisoft ↗</a>
+          <a href="/?categoria=noticias#conteudos">Notícias</a>
+          <a href="/?categoria=gestao#conteudos">Gestão</a>
+          <a href="/?categoria=tecnologia#conteudos">Tecnologia</a>
+          <a href="/?categoria=sindisoft#conteudos">Sindisoft na prática</a>
           <a href="https://www.sindisoft.com.br/contato/" class="nav-cta" target="_blank" rel="noopener noreferrer">Solicitar demonstração <span aria-hidden="true">→</span></a>
         </nav>
       </div>
@@ -53,15 +53,17 @@ const {
         <div class="footer-brand">
           <img src="/sindisoft-logo.svg" alt="Sindisoft" width="185" height="45" loading="lazy" />
           <span>RADAR SINDICAL</span>
-          <p>Informação que fortalece a gestão.</p>
+          <p>Informação, gestão e tecnologia para entidades.</p>
         </div>
         <div class="footer-about">
           <strong>Uma iniciativa da Sindisoft</strong>
           <p>Conhecimento e tecnologia para sindicatos, federações, confederações e associações de classe.</p>
         </div>
         <nav class="footer-links" aria-label="Links institucionais">
-          <a href="/#conteudos">Artigos e guias</a>
-          <a href="/#editorias">Editorias</a>
+          <a href="/?categoria=noticias#conteudos">Notícias</a>
+          <a href="/?categoria=gestao#conteudos">Gestão sindical</a>
+          <a href="/?categoria=tecnologia#conteudos">Tecnologia</a>
+          <a href="/?categoria=sindisoft#conteudos">Sindisoft na prática</a>
           <a href="https://www.sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Sindisoft ↗</a>
           <a href="https://www.instagram.com/sindisoftbr/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
         </nav>
