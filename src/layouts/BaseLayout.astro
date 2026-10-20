@@ -1,0 +1,56 @@
+---
+import '../styles/site.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Radar Sindical | Sindisoft',
+  description = 'Notícias verificadas, conhecimento prático e tendências para uma gestão sindical mais eficiente.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#102a43" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="identity" href="/" aria-label="Radar Sindical, página inicial">
+          <span class="logo-sign" aria-hidden="true"><span></span><span></span></span>
+          <span class="identity-words"><strong>RADAR SINDICAL</strong><small>UMA INICIATIVA SINDISOFT</small></span>
+        </a>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="/#conteudos">Conteúdos</a>
+          <a href="/#editorias">Editorias</a>
+          <a href="/#sobre">Sobre</a>
+          <a href="https://sindisoft.com.br/" class="nav-cta" target="_blank" rel="noopener noreferrer">Conheça a Sindisoft <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-name">RADAR SINDICAL <span>por Sindisoft</span></p>
+          <p>Informação que fortalece a gestão.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">Início</a>
+          <a href="https://sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Site da Sindisoft ↗</a>
+        </div>
+      </div>
+      <div class="container footer-fine">Conteúdo informativo. Notícias e orientações devem ser conferidas nas fontes oficiais; textos não substituem assessoria jurídica ou contábil.</div>
+    </footer>
+  </body>
+</html>
