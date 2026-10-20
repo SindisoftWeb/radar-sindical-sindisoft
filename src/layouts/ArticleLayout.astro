@@ -1,6 +1,17 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
+const otherArticles = Object.values(import.meta.glob('../pages/artigos/*.md', { eager: true })) as any[];
+const related = otherArticles
+  .filter(entry => entry.url !== Astro.url.pathname && entry.frontmatter?.category === frontmatter.category)
+  .slice(0, 3)
+  .map(entry => ({title: entry.frontmatter.title, url: entry.url}));
+const category = String(frontmatter.category || '').toLocaleLowerCase('pt-BR');
+const solutionText = category.includes('financeiro') || category.includes('arrecadação')
+  ? 'A Sindisoft apresenta soluções de gestão financeira e arrecadação para apoiar a organização dos processos da entidade.'
+  : category.includes('tecnologia') || category.includes('sindisoft')
+    ? 'Conheça os recursos de gestão, arrecadação, comunicação, site e aplicativo apresentados oficialmente pela Sindisoft.'
+    : 'Conheça a plataforma Sindisoft e suas soluções para organizar processos, informações e rotinas de entidades sindicais.';
 const displayDate = frontmatter.date
   ? new Date(frontmatter.date + 'T12:00:00').toLocaleDateString('pt-BR', {day:'2-digit',month:'long',year:'numeric'})
   : '';
@@ -18,13 +29,18 @@ const displayDate = frontmatter.date
     </div>
   </section>
   <section class="container article-shell">
-    <article class="prose"><slot /></article>
+    <article class="prose"><slot />
+      {related.length > 0 && <section class="article-related" aria-label="Artigos relacionados">
+        <h2>Leia também</h2>
+        <ul>{related.map(item => <li><a href={item.url}>{item.title}</a></li>)}</ul>
+      </section>}
+    </article>
     <aside class="article-aside">
       <div class="aside-card">
-        <span class="eyebrow">TECNOLOGIA PARA ENTIDADES</span>
-        <h2>Gestão que continua. Processos que funcionam.</h2>
-        <p>Conheça como a Sindisoft pode apoiar a organização de processos, informações e relacionamentos com a categoria.</p>
-        <a class="button button-dark" href="https://sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Conhecer a Sindisoft ↗</a>
+        <span class="eyebrow">SINDISOFT NA PRÁTICA</span>
+        <h2>Como a Sindisoft pode ajudar?</h2>
+        <p>{solutionText}</p>
+        <a class="button button-dark" href="https://www.sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Conhecer soluções ↗</a>
       </div>
       <div class="aside-note">Este conteúdo tem finalidade informativa. Consulte a legislação aplicável e profissionais especializados antes de tomar decisões jurídicas ou financeiras.</div>
     </aside>
