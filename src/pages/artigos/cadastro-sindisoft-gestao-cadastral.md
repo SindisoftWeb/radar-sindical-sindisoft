@@ -4,6 +4,10 @@ title: "Cadastro de empresas e associados: o impacto na rotina do sindicato"
 description: "Veja por que manter dados cadastrais organizados é importante para cobrança, atendimento e comunicação, e como a Sindisoft aborda esse processo."
 category: "Sindisoft na prática"
 date: "2026-10-20"
+image: "https://static.metricool.com/planner/202609/6765684-file-6233324311495201379.png"
+imageAlt: "Arte da Sindisoft sobre a importância do cadastro atualizado"
+imageCredit: "Sindisoft — arte institucional utilizada em seus canais oficiais"
+imageSourceUrl: "https://www.instagram.com/sindisoftbr/"
 readingTime: "4 min"
 ---
 
