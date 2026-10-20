@@ -1,18 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const classify = (item: any) => {
+  const cat = String(item.category || '').toLocaleLowerCase('pt-BR');
+  if (cat.includes('sindisoft na prática') || cat.includes('sindisoft na pratica')) return 'sindisoft';
+  if (item.sourcePublishedAt || cat.startsWith('notícia') || cat.startsWith('noticia')) return 'noticias';
+  if (cat.includes('tecnologia') || cat.includes('transformação digital')) return 'tecnologia';
+  return 'gestao';
+};
 const modules = import.meta.glob('./artigos/*.md', { eager: true });
 const posts = Object.values(modules)
-  .map((entry: any) => ({ ...entry.frontmatter, url: entry.url }))
+  .map((entry: any) => ({ ...entry.frontmatter, url: entry.url, editoria: classify(entry.frontmatter) }))
   .sort((a: any, b: any) => String(b.date).localeCompare(String(a.date)));
 const featured = posts[0];
 const formatDateTime = (value: any) => new Date(value).toLocaleString('pt-BR', {
   day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo'
 });
 const editorias = [
-  { name: 'Gestão sindical', desc: 'Estratégia, organização e processos da entidade.' },
-  { name: 'Convenções coletivas', desc: 'Acompanhamento, documentação e boas práticas.' },
-  { name: 'Tecnologia e processos', desc: 'Transformação digital e eficiência operacional.' },
-  { name: 'Comunicação com a categoria', desc: 'Relacionamento, informação e engajamento.' }
+  { id: 'noticias', name: 'Notícias sindicais', desc: 'Fatos verificados, decisões e mudanças relevantes para entidades.' },
+  { id: 'gestao', name: 'Gestão sindical', desc: 'Organização, arrecadação, atendimento e boas práticas.' },
+  { id: 'tecnologia', name: 'Tecnologia para sindicatos', desc: 'Processos digitais, dados e continuidade operacional.' },
+  { id: 'sindisoft', name: 'Sindisoft na prática', desc: 'Aplicações e recursos comprovados da plataforma.' }
 ];
 ---
 <BaseLayout>
@@ -21,13 +28,13 @@ const editorias = [
     <div class="container hero-grid">
       <div class="hero-content">
         <p class="pill">SINDISOFT / INTELIGÊNCIA SINDICAL</p>
-        <h1 id="hero-heading">Informação para quem <em>faz a gestão acontecer.</em></h1>
-        <p>Notícias, conhecimento e orientações práticas para quem lidera sindicatos, federações e entidades de classe.</p>
+        <h1 id="hero-heading">Informação, gestão e tecnologia <em>para entidades.</em></h1>
+        <p>Notícias verificadas, boas práticas de gestão e conteúdos sobre tecnologia aplicada à rotina de sindicatos, federações e entidades de classe.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#conteudos">Explorar conteúdos <span aria-hidden="true">→</span></a>
           <a class="simple-link" href="#sobre">Conheça o Radar <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="hero-footnote">Conteúdo feito para transformar informação em decisões melhores.</p>
+        <p class="hero-footnote">Conteúdo para quem representa, administra e toma decisões.</p>
       </div>
       {featured && (
         <div class="hero-feature">
@@ -51,9 +58,10 @@ const editorias = [
     <div class="hero-scope">
       <div class="container">
         <span>Conhecimento para a rotina da sua entidade</span>
-        <a href="#editorias">Gestão sindical</a>
-        <a href="#editorias">Convenções coletivas</a>
-        <a href="#editorias">Tecnologia e processos</a>
+        <a href="/?categoria=noticias#conteudos">Notícias sindicais</a>
+        <a href="/?categoria=gestao#conteudos">Gestão sindical</a>
+        <a href="/?categoria=tecnologia#conteudos">Tecnologia</a>
+        <a href="/?categoria=sindisoft#conteudos">Sindisoft na prática</a>
       </div>
     </div>
   </section>
@@ -66,7 +74,7 @@ const editorias = [
       </div>
       <div class="editorias-grid">
         {editorias.map((item, i) =>
-          <a href="#conteudos" class="editoria-card">
+          <a href={'/?categoria=' + item.id + '#conteudos'} class="editoria-card">
             <span class="editoria-number">{String(i + 1).padStart(2, '0')}</span>
             <div class="editoria-detail"><h3>{item.name}</h3><p>{item.desc}</p></div>
             <span class="editoria-arrow" aria-hidden="true">↗</span>
@@ -82,13 +90,17 @@ const editorias = [
         <div><span class="eyebrow">BIBLIOTECA DE CONTEÚDOS</span><h2>Explore o Radar Sindical.</h2></div>
         <p>Artigos e orientações para apoiar uma gestão cada vez mais organizada, eficiente e conectada.</p>
       </div>
+      <div class="category-filters" role="group" aria-label="Filtrar por editoria">
+        <button type="button" class="category-filter active" data-editoria-filter="todos" aria-pressed="true">Todos</button>
+        {editorias.map(item => <button type="button" class="category-filter" data-editoria-filter={item.id} aria-pressed="false">{item.name}</button>)}
+      </div>
       <div class="filters">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar por assunto ou palavra-chave..." aria-label="Buscar artigos" /></label>
         <span id="count" class="result-count">{posts.length} conteúdos</span>
       </div>
       <div class="posts-grid" id="posts-grid">
         {posts.map((post: any, i: number) =>
-          <a class="post-card" href={post.url} data-search={(post.title + ' ' + post.description + ' ' + post.category).toLocaleLowerCase('pt-BR')}>
+          <a class="post-card" href={post.url} data-editoria={post.editoria} data-search={(post.title + ' ' + post.description + ' ' + post.category).toLocaleLowerCase('pt-BR')}>
             <div class={'post-visual visual-' + (i % 3 + 1)}>
               <span class="visual-label">RADAR SINDICAL / {String(i + 1).padStart(2, '0')}</span>
               <div class="post-visual-art" aria-hidden="true"><span>◈</span><i></i><i></i></div>
@@ -102,7 +114,7 @@ const editorias = [
                 <span>Publicado no Radar: {post.publishedAt ? formatDateTime(post.publishedAt) : post.date}</span>
                 <span>{post.sourcePublishedAt
                   ? 'Notícia publicada' + (post.sourceLabel ? ' pela ' + post.sourceLabel : '') + ': ' + formatDateTime(post.sourcePublishedAt)
-                  : 'Horário da fonte: não informado'}</span>
+                  : 'Artigo educativo'}</span>
               </div>
               <span class="post-foot"><span>{post.readingTime || 'Leitura breve'}</span><span class="read-more">Ler artigo ↗</span></span>
             </div>
@@ -133,18 +145,39 @@ const editorias = [
       const cards = Array.from(document.querySelectorAll('.post-card'));
       const counter = document.getElementById('count');
       const empty = document.getElementById('empty-state');
+      const filters = Array.from(document.querySelectorAll('[data-editoria-filter]'));
+      const valid = ['todos','noticias','gestao','tecnologia','sindisoft'];
+      const initial = new URLSearchParams(window.location.search).get('categoria');
+      let active = valid.includes(initial) ? initial : 'todos';
       if (!search) return;
-      search.addEventListener('input', () => {
+      function render() {
         const query = search.value.trim().toLocaleLowerCase('pt-BR');
         let visible = 0;
         cards.forEach(card => {
-          const show = card.dataset.search.includes(query);
+          const matchesText = card.dataset.search.includes(query);
+          const matchesCategory = active === 'todos' || card.dataset.editoria === active;
+          const show = matchesText && matchesCategory;
           card.hidden = !show;
           if (show) visible++;
         });
+        filters.forEach(button => {
+          const selected = button.dataset.editoriaFilter === active;
+          button.classList.toggle('active', selected);
+          button.setAttribute('aria-pressed', String(selected));
+        });
         counter.textContent = visible + (visible === 1 ? ' conteúdo' : ' conteúdos');
         empty.hidden = visible !== 0;
-      });
+      }
+      search.addEventListener('input', render);
+      filters.forEach(button => button.addEventListener('click', () => {
+        active = button.dataset.editoriaFilter;
+        const url = new URL(window.location.href);
+        if (active === 'todos') url.searchParams.delete('categoria');
+        else url.searchParams.set('categoria', active);
+        window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+        render();
+      }));
+      render();
     })();
   </script>
 </BaseLayout>
