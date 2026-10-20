@@ -4,6 +4,10 @@ title: "Financeiro do sindicato: o que acompanhar além do saldo em conta?"
 description: "Como organizar contas a pagar, contas a receber, arrecadação, guias e conferência financeira com uma rotina integrada de gestão sindical."
 category: "Sindisoft na prática"
 date: "2026-10-20"
+image: "https://static.metricool.com/planner/202609/6765684-file-7665999813585093954.png"
+imageAlt: "Arte institucional da Sindisoft sobre gestão financeira sindical"
+imageCredit: "Sindisoft — arte institucional utilizada em seus canais oficiais"
+imageSourceUrl: "https://www.instagram.com/sindisoftbr/"
 readingTime: "4 min"
 ---
 
