@@ -1,66 +1,123 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const modules = import.meta.glob('./artigos/*.md', { eager: true });
-const posts = Object.values(modules).map((entry: any) => ({ ...entry.frontmatter, url: entry.url }))
+const posts = Object.values(modules)
+  .map((entry: any) => ({ ...entry.frontmatter, url: entry.url }))
   .sort((a: any, b: any) => String(b.date).localeCompare(String(a.date)));
-const editorias = ['Gestão sindical', 'Convenções coletivas', 'Tecnologia e processos', 'Comunicação com a categoria'];
-const accent = ['01', '02', '03', '04'];
+const featured = posts[0];
+const editorias = [
+  { name: 'Gestão sindical', desc: 'Estratégia, organização e processos da entidade.' },
+  { name: 'Convenções coletivas', desc: 'Acompanhamento, documentação e boas práticas.' },
+  { name: 'Tecnologia e processos', desc: 'Transformação digital e eficiência operacional.' },
+  { name: 'Comunicação com a categoria', desc: 'Relacionamento, informação e engajamento.' }
+];
 ---
 <BaseLayout>
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-grid-pattern" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="pill"><span class="pulse"></span> CONHECIMENTO PARA QUEM REPRESENTA</div>
-        <h1>Informação que <em>fortalece</em> a gestão sindical.</h1>
-        <p>Notícias relevantes, análises e guias práticos para sindicatos, federações, confederações e associações de classe.</p>
+        <p class="pill">SINDISOFT / INTELIGÊNCIA SINDICAL</p>
+        <h1 id="hero-heading">Informação para quem <em>faz a gestão acontecer.</em></h1>
+        <p>Notícias, conhecimento e orientações práticas para quem lidera sindicatos, federações e entidades de classe.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#conteudos">Explorar conteúdos <span aria-hidden="true">↗</span></a>
-          <a class="simple-link" href="#sobre">Conheça o Radar <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="#conteudos">Explorar conteúdos <span aria-hidden="true">→</span></a>
+          <a class="simple-link" href="#sobre">Conheça o Radar <span aria-hidden="true">↓</span></a>
         </div>
+        <p class="hero-footnote">Conteúdo feito para transformar informação em decisões melhores.</p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="radar-circle outer"></div><div class="radar-circle middle"></div><div class="radar-circle inner"></div>
-        <div class="radar-sweep"></div><div class="radar-point point-one"></div><div class="radar-point point-two"></div><div class="radar-point point-three"></div>
-        <div class="hero-art-caption"><span>RADAR SINDICAL</span><strong>Conectar informação<br/>e decisão.</strong></div>
+      {featured && (
+        <div class="hero-feature">
+          <div class="feature-topbar">
+            <span class="feature-topbar-left"><span class="feature-dot"></span> RADAR SINDICAL</span>
+            <span class="feature-topbar-right">SINDISOFT / EDITORIAL</span>
+          </div>
+          <div class="feature-inner">
+            <div class="feature-icon" aria-hidden="true"><span>◈</span><span class="feature-ring"></span></div>
+            <p class="feature-eyebrow">CONTEÚDO EM DESTAQUE</p>
+            <h2>{featured.title}</h2>
+            <p>{featured.description}</p>
+            <a href={featured.url} class="feature-link">Ler artigo completo <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="feature-bottom">
+            <span>{featured.category}</span><span>Conhecimento em movimento ↗</span>
+          </div>
+        </div>
+      )}
+    </div>
+    <div class="hero-scope">
+      <div class="container">
+        <span>Conhecimento para a rotina da sua entidade</span>
+        <a href="#editorias">Gestão sindical</a>
+        <a href="#editorias">Convenções coletivas</a>
+        <a href="#editorias">Tecnologia e processos</a>
       </div>
     </div>
   </section>
+
   <section class="editorias-section" id="editorias">
     <div class="container">
-      <div class="section-header"><div><span class="eyebrow">NOSSO OLHAR</span><h2>Assuntos que fazem a diferença</h2></div><p>Conhecimento útil para a rotina de quem lidera e administra entidades de classe.</p></div>
+      <div class="section-header">
+        <div><span class="eyebrow">OS ASSUNTOS DO RADAR</span><h2>Conhecimento que acompanha a sua operação.</h2></div>
+        <p>Um olhar sobre as decisões, os desafios e as oportunidades de quem trabalha com a representação de uma categoria.</p>
+      </div>
       <div class="editorias-grid">
-        {editorias.map((nome, i) => <a href="#conteudos" class="editoria-card"><span class="editoria-number">{accent[i]}</span><h3>{nome}</h3><span class="editoria-arrow" aria-hidden="true">↗</span></a>)}
+        {editorias.map((item, i) =>
+          <a href="#conteudos" class="editoria-card">
+            <span class="editoria-number">{String(i + 1).padStart(2, '0')}</span>
+            <div class="editoria-detail"><h3>{item.name}</h3><p>{item.desc}</p></div>
+            <span class="editoria-arrow" aria-hidden="true">↗</span>
+          </a>
+        )}
       </div>
     </div>
   </section>
+
   <section class="conteudos-section" id="conteudos">
     <div class="container">
-      <div class="section-header"><div><span class="eyebrow">BIBLIOTECA DO RADAR</span><h2>Conteúdos para sua entidade</h2></div><p>Informações e orientações para apoiar uma gestão organizada e conectada às necessidades da categoria.</p></div>
+      <div class="section-header">
+        <div><span class="eyebrow">BIBLIOTECA DE CONTEÚDOS</span><h2>Explore o Radar Sindical.</h2></div>
+        <p>Artigos e orientações para apoiar uma gestão cada vez mais organizada, eficiente e conectada.</p>
+      </div>
       <div class="filters">
-        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Busque um assunto..." aria-label="Buscar artigos" /></label>
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar por assunto ou palavra-chave..." aria-label="Buscar artigos" /></label>
         <span id="count" class="result-count">{posts.length} conteúdos</span>
       </div>
       <div class="posts-grid" id="posts-grid">
         {posts.map((post: any, i: number) =>
-          <a class="post-card" href={post.url} data-search={(post.title + ' ' + post.description + ' ' + post.category).toLowerCase()}>
+          <a class="post-card" href={post.url} data-search={(post.title + ' ' + post.description + ' ' + post.category).toLocaleLowerCase('pt-BR')}>
             <div class={'post-visual visual-' + (i % 3 + 1)}>
-              <span class="visual-label">RADAR / {String(i + 1).padStart(2, '0')}</span>
-              <span class="visual-icon" aria-hidden="true">{['◈', '◎', '◇'][i % 3]}</span>
+              <span class="visual-label">RADAR SINDICAL / {String(i + 1).padStart(2, '0')}</span>
+              <div class="post-visual-art" aria-hidden="true"><span>◈</span><i></i><i></i></div>
               <span class="visual-word">SINDISOFT</span>
             </div>
             <div class="post-content">
               <span class="post-category">{post.category}</span>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
-              <span class="post-foot"><span>{post.readingTime || 'Leitura breve'}</span><span class="read-more">Ler artigo →</span></span>
+              <span class="post-foot"><span>{post.readingTime || 'Leitura breve'}</span><span class="read-more">Ler artigo ↗</span></span>
             </div>
           </a>
         )}
       </div>
-      <p id="empty-state" class="empty-state" hidden>Nenhum artigo encontrado. Experimente outro termo.</p>
+      <p id="empty-state" class="empty-state" hidden>Nenhum artigo encontrado. Experimente outra palavra-chave.</p>
     </div>
   </section>
-  <section class="about-section" id="sobre"><div class="container about-grid"><div><span class="eyebrow light">NOSSO PROPÓSITO</span><h2>Gestão sindical mais forte começa com boas informações.</h2></div><div><p>O Radar Sindical é uma iniciativa editorial da Sindisoft, dedicada a compartilhar conhecimento aplicável à realidade das entidades de classe.</p><p>Unimos informação, gestão e tecnologia para apoiar decisões e fortalecer processos.</p><a class="button button-outline" href="https://sindisoft.com.br/" target="_blank" rel="noopener noreferrer">Conhecer a Sindisoft ↗</a></div></div></section>
+
+  <section class="about-section" id="sobre">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow light">POR TRÁS DO RADAR</span>
+        <h2>Tecnologia e conhecimento para fortalecer a gestão sindical.</h2>
+      </div>
+      <div>
+        <p>O Radar Sindical é uma iniciativa da Sindisoft, empresa especializada em soluções para sindicatos e entidades de classe. Nosso objetivo é transformar informação em conhecimento útil para a rotina de quem representa, administra e toma decisões.</p>
+        <p>Da gestão financeira ao relacionamento com a categoria, aproximamos desafios reais de caminhos práticos para evoluir.</p>
+        <a class="button button-primary" href="https://www.sindisoft.com.br/contato/" target="_blank" rel="noopener noreferrer">Falar com a Sindisoft <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
   <script is:inline>
     (() => {
       const search = document.getElementById('search');
