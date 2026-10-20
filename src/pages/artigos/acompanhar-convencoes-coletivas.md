@@ -36,3 +36,12 @@ Sistemas adequados podem apoiar o registro de documentos, o acompanhamento de pr
 > Uma boa organização transforma informações dispersas em um processo de gestão que pode ser acompanhado e aperfeiçoado.
 
 *Nota editorial: este é um guia de organização administrativa, não uma análise jurídica de instrumentos coletivos específicos.*
+
+---
+
+## Fontes oficiais e referências consultadas
+
+- **Ministério do Trabalho e Emprego:** [Registro de convenções e acordos coletivos de trabalho](https://www.gov.br/trabalho-e-emprego/pt-br/servicos/sindicatos/convencoes-e-acordos-coletivos-de-trabalho/registro-de-convencoes-e-acordo-coletivo-de-trabalho).
+- **Governo Federal:** [Serviço de registro de instrumentos coletivos de trabalho](https://www.gov.br/pt-br/servicos/registrar-instrumentos-coletivos-de-trabalho).
+
+**Data da consulta:** 20/10/2026. **Autoria:** Radar Sindical — Sindisoft. As sugestões de organização são orientações editoriais próprias fundamentadas nas etapas gerais do serviço oficial.
