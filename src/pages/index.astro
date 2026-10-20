@@ -98,12 +98,12 @@ const editorias = [
               <span class="post-category">{post.category}</span>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
-              {(post.publishedAt || post.sourcePublishedAt) && (
-                <div class="post-times" aria-label="Datas e horários">
-                  {post.publishedAt && <span>Publicado no Radar: {formatDateTime(post.publishedAt)}</span>}
-                  {post.sourcePublishedAt && <span>Notícia publicada{post.sourceLabel ? ` pela ${post.sourceLabel}` : ''}: {formatDateTime(post.sourcePublishedAt)}</span>}
-                </div>
-              )}
+              <div class="post-times" aria-label="Datas e horários">
+                <span>Publicado no Radar: {post.publishedAt ? formatDateTime(post.publishedAt) : post.date}</span>
+                <span>{post.sourcePublishedAt
+                  ? 'Notícia publicada' + (post.sourceLabel ? ' pela ' + post.sourceLabel : '') + ': ' + formatDateTime(post.sourcePublishedAt)
+                  : 'Horário da fonte: não informado'}</span>
+              </div>
               <span class="post-foot"><span>{post.readingTime || 'Leitura breve'}</span><span class="read-more">Ler artigo ↗</span></span>
             </div>
           </a>
