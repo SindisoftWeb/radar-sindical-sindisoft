@@ -4,6 +4,7 @@ title: "Comércio em feriados: o que a portaria de 2026 destaca sobre a negocia�
 description: "O MTE divulgou regras para o trabalho no comércio em feriados e ressaltou o papel das convenções coletivas. Entenda os principais pontos."
 category: "Convenções coletivas"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:52:37-03:00"
 readingTime: "5 min"
 ---
 
