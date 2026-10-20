@@ -36,3 +36,12 @@ Além de curtidas e visualizações, acompanhe perguntas respondidas, acessos a 
 > A comunicação se fortalece quando a informação chega de forma clara e encontra espaço para diálogo.
 
 *Nota editorial: as práticas devem ser ajustadas às características e responsabilidades de cada entidade.*
+
+---
+
+## Fontes oficiais e referências complementares
+
+- **Autoridade Nacional de Proteção de Dados:** [Materiais educativos e publicações da ANPD](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes).
+- **Autoridade Nacional de Proteção de Dados:** [Guia orientativo sobre hipóteses legais de tratamento de dados — legítimo interesse](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_hipoteses_legais_tratamento_de_dados_pessoais_legitimo_interesse).
+
+**Data da consulta:** 20/10/2026. **Autoria:** Radar Sindical — Sindisoft. As dicas de planejamento e comunicação são recomendações editoriais, enquanto os cuidados com dados devem ser avaliados à luz da legislação e orientações aplicáveis à entidade.
