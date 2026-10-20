@@ -36,3 +36,12 @@ Escolha poucos indicadores que possam ser medidos com consistência. Defina resp
 > Indicadores ganham valor quando ajudam a tomar decisões e melhoram a experiência de quem é atendido.
 
 *Nota editorial: os indicadores apresentados são sugestões gerais de gestão, que precisam ser adaptadas às prioridades de cada entidade.*
+
+---
+
+## Fontes oficiais e referências complementares
+
+- **Ministério do Trabalho e Emprego:** [Informações gerais sobre o CNES](https://www.gov.br/trabalho-e-emprego/pt-br/servicos/sindicatos/cadastro-de-entidades/cadastro-de-entidades-sindicais/informacoes-gerais-sobre-o-cadastro-nacional-de-entidades-sindicais).
+- **Ministério do Trabalho e Emprego:** [Painel de Informações sobre Relações do Trabalho — documentação de atualização](https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/onmt/acervo2/copy_of_publicacoes/atualizacao-e-inclusao-de-informacoes-no-painel-de-informacoes-sobre-relacoes-do-trabalho).
+
+**Data da consulta:** 20/10/2026. **Autoria:** Radar Sindical — Sindisoft. Os indicadores sugeridos são propostas editoriais de gestão, não indicadores obrigatórios estabelecidos pelas fontes citadas.
