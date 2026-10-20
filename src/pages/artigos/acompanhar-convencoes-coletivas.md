@@ -4,6 +4,7 @@ title: "Como organizar o acompanhamento de convenções e acordos coletivos"
 description: "Um roteiro prático para reunir prazos, documentos e responsabilidades em um processo de acompanhamento mais claro."
 category: "Convenções coletivas"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:53:10-03:00"
 readingTime: "5 min"
 ---
 
