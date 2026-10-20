@@ -5,6 +5,9 @@ const posts = Object.values(modules)
   .map((entry: any) => ({ ...entry.frontmatter, url: entry.url }))
   .sort((a: any, b: any) => String(b.date).localeCompare(String(a.date)));
 const featured = posts[0];
+const formatDateTime = (value: any) => new Date(value).toLocaleString('pt-BR', {
+  day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'
+});
 const editorias = [
   { name: 'Gestão sindical', desc: 'Estratégia, organização e processos da entidade.' },
   { name: 'Convenções coletivas', desc: 'Acompanhamento, documentação e boas práticas.' },
@@ -95,6 +98,12 @@ const editorias = [
               <span class="post-category">{post.category}</span>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
+              {(post.publishedAt || post.sourcePublishedAt) && (
+                <div class="post-times" aria-label="Datas e horários">
+                  {post.publishedAt && <span>Publicado no Radar: {formatDateTime(post.publishedAt)}</span>}
+                  {post.sourcePublishedAt && <span>Notícia publicada: {formatDateTime(post.sourcePublishedAt)}</span>}
+                </div>
+              )}
               <span class="post-foot"><span>{post.readingTime || 'Leitura breve'}</span><span class="read-more">Ler artigo ↗</span></span>
             </div>
           </a>
