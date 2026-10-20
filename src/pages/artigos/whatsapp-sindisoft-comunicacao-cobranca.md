@@ -4,6 +4,10 @@ title: "WhatsApp para sindicatos: como organizar comunicados e cobranças"
 description: "Entenda como a comunicação por WhatsApp pode integrar avisos, cobranças e histórico de relacionamento à rotina de uma entidade sindical."
 category: "Sindisoft na prática"
 date: "2026-10-20"
+image: "https://static.metricool.com/planner/202609/6765684-file-7328744176834212468.png"
+imageAlt: "Arte oficial da Sindisoft sobre comunicação via WhatsApp para sindicatos"
+imageCredit: "Sindisoft — arte institucional utilizada em seus canais oficiais"
+imageSourceUrl: "https://www.instagram.com/sindisoftbr/"
 readingTime: "4 min"
 ---
 
