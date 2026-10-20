@@ -4,6 +4,7 @@ title: "Quais indicadores acompanhar na gestão de um sindicato?"
 description: "Conheça indicadores operacionais que podem apoiar decisões e dar visibilidade à evolução dos processos da entidade."
 category: "Gestão sindical"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:53:07-03:00"
 readingTime: "4 min"
 ---
 
