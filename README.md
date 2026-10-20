@@ -30,6 +30,10 @@ description: "Resumo curto e informativo"
 category: "Gestão sindical"
 date: "2026-10-20"
 readingTime: "4 min"
+image: "/images/artigos/capa-do-artigo.png"
+imageAlt: "Descrição objetiva e acessível da imagem"
+imageCredit: "Sindisoft / nome da fonte autorizada"
+imageSourceUrl: "https://url-original-permitida.exemplo/"
 ---
 
 Texto do artigo em Markdown.
@@ -45,3 +49,18 @@ O Astro gera automaticamente a página do novo artigo; a página inicial também
 - Não armazenar credenciais, chaves, listas de contatos privados nem dados pessoais sensíveis no repositório público.
 - Substituir o símbolo gráfico temporário pela identidade oficial da Sindisoft quando houver arquivo de marca autorizado.
 - O formulário de newsletter não foi ativado; só deve ser implementado com ferramenta de coleta e consentimento apropriados.
+
+
+## Padrão de imagens dos artigos
+
+Cada artigo pode ter uma **imagem principal** no frontmatter. Essa imagem é exibida automaticamente na capa do artigo, no cartão da biblioteca, no destaque da página inicial e em metadados Open Graph usados por redes sociais.
+
+- **Sindisoft na prática e guias de gestão:** priorize reaproveitar a arte original já publicada no Instagram oficial da Sindisoft ou imagens/telas oficialmente autorizadas do sistema. Preserve arquivo e logotipo oficiais, sem recriação ou adulteração.
+- **Notícias sindicais:** procure primeiro uma imagem/fotografia oficial com autorização expressa de reprodução ou licença compatível; verifique licença e condições de crédito. Ser fonte oficial **não implica** licença de reutilização. Registre autor, órgão e URL da imagem. Não copie fotografia de portal de notícias nem use hotlink não autorizado.
+- **Sem imagem licenciada:** prefira uma arte editorial própria feita com recursos da marca e o logotipo original do Project (se houver acesso seguro ao arquivo) ou mantenha o fallback tipográfico. **Nunca invente URL de imagem.**
+- **Formato e acessibilidade:** dê preferência a PNG/JPG/WebP nítidos, preencha `imageAlt` com descrição significativa, evite textos minúsculos e preserve o corte das peças de Instagram. O site usa `object-fit: contain` para exibir a peça completa no card e no artigo.
+- **Hospedagem:** prefira arquivos de imagem sob `public/images/artigos/` no próprio repositório. Referências existentes a `static.metricool.com` são origens da conta oficial e devem ser posteriormente migradas para hospedagem controlada pela Sindisoft para evitar links quebrados; o layout possui fallback visual caso a URL externa falhe.
+- **Crédito:** preencha `imageCredit` e, quando disponível, `imageSourceUrl`, especialmente em notícias. Não trate o crédito como substituto de uma autorização de uso.
+- **Conferência:** depois da implantação Cloudflare, valide no celular e no desktop o carregamento da imagem, o alt text, ausência de cortes e a prévia do compartilhamento LinkedIn/Facebook.
+
+**Importante:** separar sempre data da notícia original, data da publicação do Radar e os metadados da imagem. Não afirmar que uma imagem é liberada apenas porque aparece em site público.
