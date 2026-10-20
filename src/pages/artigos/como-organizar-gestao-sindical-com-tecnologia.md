@@ -4,6 +4,10 @@ title: "Gestão sindical com tecnologia: por onde começar?"
 description: "Cinco pontos para avaliar processos, informações, arrecadação e atendimento antes de escolher uma plataforma de gestão para a entidade."
 category: "Sindisoft na prática"
 date: "2026-10-20"
+image: "https://static.metricool.com/planner/202610/6765684-file-11637718777127805416.png"
+imageAlt: "Arte institucional da Sindisoft sobre organização e continuidade dos processos da entidade"
+imageCredit: "Sindisoft — arte institucional utilizada em seus canais oficiais"
+imageSourceUrl: "https://www.instagram.com/sindisoftbr/"
 readingTime: "4 min"
 ---
 
