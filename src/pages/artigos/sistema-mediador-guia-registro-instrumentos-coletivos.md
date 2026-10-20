@@ -4,6 +4,7 @@ title: "Sistema Mediador: como organizar o registro de convenções e acordos co
 description: "Entenda a função do Mediador, os instrumentos registrados e os dados que a entidade precisa organizar, segundo o serviço oficial do MTE."
 category: "Convenções coletivas"
 date: "2026-10-20"
+publishedAt: "2026-10-20T09:52:40-03:00"
 readingTime: "5 min"
 ---
 
